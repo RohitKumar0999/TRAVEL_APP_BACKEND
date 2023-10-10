@@ -10,15 +10,13 @@ const SingleHotelInDB = require("./Routes/singlehotel.router");
 const Register = require("./Routes/auth.router");
 const WishlistRouter = require("./Routes/wishlist.router");
 const dotenv = require("dotenv");
-
 dotenv.config();
 
-const PORT = process.env.PORT  ;
-
+const PORT = 3600
 connectDB();
 
 mongoose.connection.once("open",()=>{
-    app.listen(PORT||process.env.PORT,()=>{
+    app.listen(PORT,()=>{
         console.log(`Your Applicaiton is running on ${PORT} Port`)
     })
 
@@ -33,7 +31,7 @@ app.get("/",(req,res)=>{
 
 app.use("/api/hotelData/hotel",hotelsInDB)
 app.use("/hotels",hotelRouter);
-app.use("/api/hotels/upload+category",CategoriesInDB)
+app.use("/api/hotels/uploadcategory",CategoriesInDB)
 app.use("/api/hotels/category",Categories);
 app.use("/api/hotels",SingleHotelInDB);
 app.use("/api/auth",Register);
