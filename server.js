@@ -9,9 +9,11 @@ const Categories = require("./Routes/categories.router");
 const SingleHotelInDB = require("./Routes/singlehotel.router");
 const Register = require("./Routes/auth.router");
 const WishlistRouter = require("./Routes/wishlist.router");
+const dotenv = require("dotenv");
 
+dotenv.config();
 
-const PORT = 3600  ;
+const PORT = process.env.PORT  ;
 
 connectDB();
 
