@@ -10,6 +10,7 @@ const SingleHotelInDB = require("./Routes/singlehotel.router");
 const Register = require("./Routes/auth.router");
 const WishlistRouter = require("./Routes/wishlist.router");
 const dotenv = require("dotenv");
+const cors = require("cors");
 dotenv.config();
 
 const PORT = 3600
@@ -21,8 +22,8 @@ mongoose.connection.once("open",()=>{
     })
 
 })
-
 app.use(express.json());
+app.use(cors);
 
 app.get("/",(req,res)=>{
     console.log(req.body);
