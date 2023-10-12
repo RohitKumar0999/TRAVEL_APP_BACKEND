@@ -10,7 +10,7 @@ const SingleHotelInDB = require("./Routes/singlehotel.router");
 const Register = require("./Routes/auth.router");
 const WishlistRouter = require("./Routes/wishlist.router");
 const dotenv = require("dotenv");
-const cors = require("cors");
+const cors = require("cors")
 dotenv.config();
 
 const PORT = 3600
@@ -20,12 +20,13 @@ mongoose.connection.once("open",()=>{
     app.listen(PORT,()=>{
         console.log(`Your Applicaiton is running on ${PORT} Port`)
     })
-
 })
+
+app.use(cors());
 app.use(express.json());
-app.use(cors);
 
 app.get("/",(req,res)=>{
+    console.log("simple get request");
     console.log(req.body);
     res.send("HEllo World");
 })
